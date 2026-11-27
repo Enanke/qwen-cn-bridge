@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>千问助手</title>
+  <style>/* PANEL_CSS */</style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="brand" aria-hidden="true">
+        <svg viewBox="0 0 128 128" width="31" height="31"><path fill="currentColor" d="M64 16c5 30 18 43 48 48-30 5-43 18-48 48-5-30-18-43-48-48 30-5 43-18 48-48Z"/></svg>
+      </div>
+      <div><h1>千问助手</h1><p>中国大陆资讯与平台规则检索</p></div>
+    </header>
+
+    <section aria-labelledby="status-title">
+      <div class="row section-head"><h2 id="status-title">连接状态</h2><span class="badge" id="login-status">待检查</span></div>
+      <dl>
+        <div><dt>发送模式</dt><dd id="mode-status">Qwen-快速 · 免费</dd></div>
+        <div><dt>后台进程</dt><dd id="process-status">待检查</dd></div>
+      </dl>
+      <p class="feedback" id="feedback" role="status" aria-live="polite">正在连接 Antigravity…</p>
+    </section>
+
+    <section aria-labelledby="controls-title">
+      <h2 id="controls-title">账号与后台</h2>
+      <div class="actions">
+        <button id="login" class="primary" disabled>登录 / 切换千问账号</button>
+        <button id="probe" disabled>检查状态</button>
+        <button id="stop" disabled>释放后台进程</button>
+        <button id="clear" class="danger" disabled>退出登录</button>
+      </div>
+      <div class="row mode-row">
+        <label for="background-mode">后台运行方式</label>
+        <select id="background-mode" disabled>
+          <option value="headless">静默无头（推荐）</option>
+          <option value="minimized">最小化窗口兜底</option>
+        </select>
+      </div>
+    </section>
+
+    <section aria-labelledby="test-title">
+      <h2 id="test-title">快捷测试</h2>
+      <form id="test-form">
+        <label for="query">检索问题</label>
+        <textarea id="query" rows="3" maxlength="12000" required placeholder="例如：12306 铁路电子发票如何开具？"></textarea>
+        <button id="test-send" class="primary" disabled>发给千问测试</button>
+      </form>
+      <div id="test-result" class="result" hidden>
+        <p id="test-meta" role="status"></p>
+        <pre id="test-answer" tabindex="0"></pre>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="confirm" aria-labelledby="confirm-title">
+    <form method="dialog">
+      <h2 id="confirm-title"></h2>
+      <p id="confirm-copy"></p>
+      <div class="actions">
+        <button value="cancel" autofocus>取消</button>
+        <button value="confirm" class="danger" id="confirm-action"></button>
+      </div>
+    </form>
+  </dialog>
+  <script>/* PANEL_JS */</script>
+</body>
+</html>
